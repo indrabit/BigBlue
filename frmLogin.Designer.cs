@@ -1,6 +1,4 @@
-﻿using Inventory_Read;
-
-
+﻿
 namespace Inventory
 {
     partial class frmLogin

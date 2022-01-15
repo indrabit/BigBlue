@@ -8,24 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using Inventory_Read.Include;
+using BigBlue.Include;
 
 
 
 namespace Inventory
 {
-    
+
     public partial class frmLogin : Form
     {
-       
+
         public frmLogin()
         {
             InitializeComponent();
         }
         SQLConfig_Read config = new SQLConfig_Read();
-        
 
-        
+
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -46,15 +46,15 @@ namespace Inventory
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            
-            string sql = "Select user_name, pass, fullname, userId from tbluser where user_name='" + txtUserName.Text + "' and pass=sha1('" + txtPassword.Text+"')";
+
+            string sql = "Select user_name, pass, fullname, userId from tbluser where user_name='" + txtUserName.Text + "' and pass=sha1('" + txtPassword.Text + "')";
             config.ExecuteQuery(sql);
-                    
-            if (config.dt.Rows.Count>0)
+
+            if (config.dt.Rows.Count > 0)
             {
                 this.Hide();
                 frmMain fm = new frmMain();
-                fm.ShowDialog();                               
+                fm.ShowDialog();
             }
         }
     }
